@@ -1,0 +1,37 @@
+comando chmod
+
+chmod [<CONJUNTO><AÇAO><PERMISSÕES>]... ARQUIVO
+
+para 'conjunto' temos as opções:
+u 	Usuário: o usuário que possui o arquivo.
+g 	Grupo: o grupo que possui o arquivo.
+o 	Outros: qualquer pessoa que não seja o proprietário do usuário ou membro do proprietário do grupo.
+a 	Todos: refere-se ao usuário, grupo e outros.
+
+
+para 'ações' temos as opções:
++ 	Adicione a permissão, se necessário
+= 	Especifique a permissão exata
+- 	Remova a permissão, se necessário
+
+
+para 'permissões' temos as opções:
+r 	ler
+w 	escrever
+x 	executar
+
+
+Exemplo prático, quando rodamos:
+ls -l hello.sh
+
+saída:
+-rw-r--r-- 1 sysadmin sysadmin 647 Dec 20 2017 hello.sh
+
+
+As duas primeiras letras rw são de permissões para ler e escrever (read write). Não sendo possível executar o arquivo, precisaria adicionar a letra x (para execução). OBS: as duas primeiras letras são referentes ao usuário que possui o arquivo. Então, precisamos rodar o chmod para alterar essas permissões:
+
+chmod u+x hello.sh
+
+para verificar a nova permissão no arquivo, ls -l hello.sh
+saida:  -rwxr--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.shagora pode executar com o comando ./hello.sh
+
