@@ -1,4 +1,6 @@
-comando chmod
+
+##### Comando chmod #####
+#########################
 
 chmod [<CONJUNTO><AÇAO><PERMISSÕES>]... ARQUIVO
 
@@ -34,4 +36,19 @@ chmod u+x hello.sh
 
 para verificar a nova permissão no arquivo, ls -l hello.sh
 saida:  -rwxr--r-- 1 sysadmin sysadmin 647 Dec 20  2017 hello.shagora pode executar com o comando ./hello.sh
+
+
+
+##### Comando CHOWN #####
+#########################
+
+comando chown altera o proprietário do arquivo
+
+chown [OPÇÕES] [PROPRIETÁRIO] ARQUIVO
+
+para 'proprietário' coloque o nome do novo proprietário do arquivo.
+OBS: lembre-se que para alterar tem que ser como administrador usando o comando sudo, 
+seria algo como isso:
+
+sudo chown root hello.sh   
 
