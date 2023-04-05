@@ -11,21 +11,20 @@ https://pymongo.readthedocs.io/en/stable/atlas.html
 depois é preciso ter instalado build-essential:
 sudo apt install build-essential python3-dev
 
-
+precisa acessar o mongo atlas-> Network Access para liberar o ip da maquina para inserir dados no banco
 """
 
 import pymongo as pym
-from pymongo import collation
 import datetime
 
-client = pym.MongoClient("mongodb+srv://momo:momo@cluster0.u6y9agk.mongodb.net/?retryWrites=true&w=majority")
+client = pym.MongoClient("mongodb+srv://ronaldo:ronaldo@cluster0.u6y9agk.mongodb.net/?retryWrites=true&w=majority")
 db = client.test
 collection = db.test_collection
 
 
 post = {
-    "author": "mike",
-    "text": "my first mongoDB application based on python",
+    "author": "teste",
+    "text": "super teste",
     "tags": ["mongodb", "python3", "pymongo"],
     "date": datetime.datetime.now()
 }
