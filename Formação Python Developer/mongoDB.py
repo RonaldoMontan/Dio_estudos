@@ -14,6 +14,7 @@ sudo apt install build-essential python3-dev
 precisa acessar o mongo atlas-> Network Access para liberar o ip da maquina para inserir dados no banco
 """
 
+import pprint
 import pymongo as pym
 import datetime
 
@@ -29,11 +30,52 @@ post = {
     "date": datetime.datetime.now()
 }
 
-#preparando para submeter as informações
-posts = db.posts
-result = posts.insert_one(post)
+#preparando para submeter as informações, nome da coleção é post
+posts = db.posts 
+# result = posts.insert_one(post)
 
-if result.acknowledged:
-    print("Inserido com sucesso. Id do registro:", result.inserted_id)
-else:
-    print("Ocorreu um erro ao inserir os dados.")
+# if result.acknowledged:
+#     print("Inserido com sucesso. Id do registro:", result.inserted_id)
+# else:
+#     print("Ocorreu um erro ao inserir os dados.")
+
+print(db.list_collection_names()) #imprime [post]
+
+#recuperando informações com exibição identada
+pprint.pprint(db.posts.find_one())
+
+
+# buck insert / inserir mais de um; é passando o dicionario dentro de uma lista
+new_post = [{
+    "author": "um",
+    "text": "primeira inserção",
+    "tags": ["mongodb", "python3", "pymongo"],
+    "date": datetime.datetime.now()
+    },
+    {
+    "author": "dois",
+    "text": "segunda inserção",
+    "tags": ["mongodb", "python3", "pymongo"],
+    "date": datetime.datetime.now()
+    }
+]
+
+# result = posts.insert_many(new_post)
+
+# if result.acknowledged:
+#     print("Inserido com sucesso. Id do registro:", result.inserted_ids)
+# else:
+#     print("Ocorreu um erro ao inserir os dados.")
+
+print('\n documentos ')
+for i in posts.find():
+    pprint.pprint(i)
+    print('\n')
+
+print(f'quantidade de registros {posts.count_documents({})}')
+
+#um parametro para 'count_documents()' pode ser um dicionario
+print(f'quantidade de author mike é {posts.count_documents({"author": "mike"})}\n')
+
+#pode ser usado para buscar um registro expecifico.
+pprint.pprint(posts.find_one({"author": "um"}))
