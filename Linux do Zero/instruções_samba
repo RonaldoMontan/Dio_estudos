@@ -1,0 +1,50 @@
+####Instalação do samba####
+###########################
+Para instalar usamos o comando:
+apt install samba -y
+
+Depois criar a pasta que será compartilhada comk o comando mkdir
+Passar as permissões para a pasta criada, com o comando:
+sudo chmod 777 nome_da_pasta/
+
+
+
+
+####Configurações do arquivo smb.conf####
+#########################################
+
+Abrir o arquivo e inserir na ultima linha:
+
+[name_path] -> insira o nome da pasta que será compartilhada
+
+path = /o_caminho_dela/ -> forneça o caminho da pasta que será compartilhado.
+writable = yes 		-> permissão para que as pessoas possam gravar arquivos na pasta.
+guest ok = yes		-> permite que até convidados acessem a pasta.
+guest only = yes	-> permite que até convidados acessem a pasta.
+
+salvar as mudanças.
+
+
+
+
+####Configurações do serviço samba####
+######################################
+
+É preciso reiniciar o serviço que fica em segundo plano no daemon, usamos o comando:
+systemctl restart smbd
+
+Proxíma etapa é verificar se o status deste serviço ficou ativo, usamos o comando:
+systemctl status smbd
+
+
+Detalhe, caso a maquina seja desligada ou reiniciada essa configuração pode ser perdida,
+para manter a confiruação, usamos o comando:
+systemctl enable smbd
+
+
+
+
+####Como acessar esta pasta####
+###############################
+
+
