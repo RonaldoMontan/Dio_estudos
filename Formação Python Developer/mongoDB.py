@@ -67,15 +67,33 @@ new_post = [{
 # else:
 #     print("Ocorreu um erro ao inserir os dados.")
 
-print('\n documentos ')
+print('\n Todos os documentos salvos')
 for i in posts.find():
     pprint.pprint(i)
     print('\n')
 
 print(f'quantidade de registros {posts.count_documents({})}')
 
+
 #um parametro para 'count_documents()' pode ser um dicionario
 print(f'quantidade de author mike é {posts.count_documents({"author": "mike"})}\n')
 
+
 #pode ser usado para buscar um registro expecifico.
+print('busca precisa')
 pprint.pprint(posts.find_one({"author": "um"}))
+
+
+print('\nRecuperando todos os registros pela ordem da data:')
+for i in posts.find({}).sort("author"):
+    pprint.pprint(i)
+
+
+print("""
+Criando uma colection nova
+            para usuarios.
+""")
+#definindo um indice para elemento author
+result = db.profile_user.create_index([('author', pym.ASCENDING)], unique=True)
+print(f'\n\n{result}\n\n')
+print(sorted(list(db.profile_user.index_information())))
