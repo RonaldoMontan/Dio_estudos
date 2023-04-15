@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask
 from dataset import criadados
 
 app = Flask(__name__)
