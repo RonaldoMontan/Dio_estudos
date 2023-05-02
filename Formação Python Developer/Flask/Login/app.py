@@ -1,6 +1,9 @@
 from flask import Flask, request, redirect, url_for, render_template
+from database import Database
+
 
 app = Flask(__name__)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -16,9 +19,11 @@ def login():
     
     return render_template('login.html')
 
-@app.route('/next_page')
-def next_page():
-    return render_template('next_page.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():    
+    return render_template('register_user.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='192.168.99.119')
