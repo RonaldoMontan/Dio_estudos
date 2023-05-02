@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Next_page</title>
+    <title>Cadastro</title>
     <style>
         body{
             font-family: 'Times New Roman', Times, serif;
@@ -20,15 +20,42 @@
             border-radius: 25px;
             color: whitesmoke;
         }
+        input{
+            border: none;
+            padding: 14px;
+            outline: none;
+            border-radius: 13px;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+        }
+        button{
+            background-color: dodgerblue;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 13px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+            color: whitesmoke;
+            box-shadow: 0px 8px 15px rgba(6, 32, 58, 0.3);
+            transition: all 0.6s ease 0s;
+        }
+        button:hover{
+            background-color: rgb(41, 79, 117);
+            border-radius: 20px;
+            cursor: pointer;
+            transform: translateY(-7px);
+        }
     </style>
 </head>
 <body>
     <div>
         <h1>Cadastro</h1>
-        <form method="POST" action="/register">
-            <input type="text" id="seu usuario" name="seu usuario" required>
+        <form method="POST" action="/register_user">
+            <input type="text" placeholder="seu usuário" id="seu usuario" name="seu usuário" required>
             <br><br>
-            <input type="text" id="sua senha" name="sua senha" required>
+            <input type="password" placeholder="sua senha" id="sua senha" name="sua senha" required>
             <br><br>
             <button type="submit">Registrar</button>
         </form>

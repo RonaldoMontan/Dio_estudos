@@ -3,7 +3,7 @@ from database import Database
 
 
 app = Flask(__name__)
-
+db = Database()
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -20,10 +20,17 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():    
+@app.route('/register_user', methods=['GET', 'POST'])
+def register():  
+    if request.method == 'POST':
+        username = request.form['seu usuário']
+        password = request.form['sua senha']
+
+        db.insert_credential(username=username, password=password)
+        # return redirect(url_for('register_user.html'))
+    
     return render_template('register_user.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host='192.168.99.119')
+    app.run(debug=True, port=5000)

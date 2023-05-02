@@ -36,8 +36,8 @@ class Database:
         result = self.collection.insert_one(insert)
 
         if result.acknowledged:
-            print("inserido com sucesso")
+            print("Inserido com sucesso")
         else:
-            print('ocorreu um erro!')
+            print('Ocorreu um erro!')
 
 
