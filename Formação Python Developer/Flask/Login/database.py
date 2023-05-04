@@ -37,7 +37,9 @@ class Database:
 
         if result.acknowledged:
             print("Inserido com sucesso")
+            return True
         else:
             print('Ocorreu um erro!')
+            return False
 
 

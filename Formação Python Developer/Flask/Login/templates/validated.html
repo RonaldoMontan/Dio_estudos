@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valited</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
+            background-image: linear-gradient(65deg, rgb(0, 255, 128), rgb(255, 208, 0));
+        }
+        div{
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 50px;
+            border-radius: 25px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {% if result %}
+            <h1>Usuário cadastrado com sucesso!</h1>
+        {% else %}
+            <h1>Erro ao cadastrar usuário.</h1>
+        {% endif %}
+    </div>
+</body>
+</html>

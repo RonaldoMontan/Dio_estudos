@@ -26,7 +26,8 @@ def register():
         username = request.form['seu usuário']
         password = request.form['sua senha']
 
-        db.insert_credential(username=username, password=password)
+        result = db.insert_credential(username=username, password=password)
+        return render_template('validated.html', result=result)
         # return redirect(url_for('register_user.html'))
     
     return render_template('register_user.html')
