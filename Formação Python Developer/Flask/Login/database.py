@@ -26,20 +26,42 @@ class Database:
         self.collection = self.client["My_page"]["Login"]
 
 
-    def insert_credential(self, username, password):
-        insert={
-            "username": username,
-            "password": password,
-            "data": datetime.datetime.now()
-        }
+    def insert_credential(self, username, password, ):
 
-        result = self.collection.insert_one(insert)
+        
+        result_find = self.consult_credential(username)
 
-        if result.acknowledged:
-            print("Inserido com sucesso")
-            return True
-        else:
-            print('Ocorreu um erro!')
+        if result_find['username'] == username:
+            print('Ja existe')
             return False
+        else:
+            insert={
+                "username": username,
+                "password": password,
+                "data": datetime.datetime.now()
+            }
+
+
+            result = self.collection.insert_one(insert)
+
+            if result.acknowledged:
+                print("Inserido com sucesso")
+                return True
+            else:
+                print('Ocorreu um erro!')
+                return False
+        
+
+    def consult_credential(self, username):
+        
+        consult={
+            "username": username
+        }
+        result = self.collection.find_one(consult)
+        print(result)
+        
+        return result
+
+
 
 

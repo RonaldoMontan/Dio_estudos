@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, url_for, render_template
 from database import Database
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -33,5 +34,13 @@ def register():
     return render_template('register_user.html')
 
 
+@app.route('/achei/<username>')
+def achei(username):
+
+    name = username
+    result = db.consult_credential(username=name)
+    
+    
+    return f"<h1>Usuário ja consta cadastrado em nossa base em:{result['data']}</h1>"
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
