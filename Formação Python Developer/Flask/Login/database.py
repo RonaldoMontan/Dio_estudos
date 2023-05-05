@@ -29,9 +29,9 @@ class Database:
     def insert_credential(self, username, password, ):
 
         
-        result_find = self.consult_credential(username)
-        print(f'valor dentro de resullt_find{result_find}')
-        if result_find == None:
+        result_1 = self.consult_credential(username)
+        print(f'valor dentro de resullt_find{result_1}')
+        if result_1 == None:
             insert={
                 "username": username,
                 "password": password,

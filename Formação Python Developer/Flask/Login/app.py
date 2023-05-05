@@ -12,7 +12,7 @@ def login():
         username = request.form['username'].upper()
         password = request.form['password']
         result = db.consult_credential(username=username)
-        print(result)
+        
         if result == None:
             return render_template('autenticatefail.html')
         
