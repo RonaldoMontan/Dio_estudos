@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, url_for, render_template
 from database import Database
-from datetime import datetime
 
 
 app = Flask(__name__)
@@ -9,14 +8,17 @@ db = Database()
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+
+        username = request.form['username'].upper()
         password = request.form['password']
+        result = db.consult_credential(username=username)
+        print(result)
+        if result == None:
+            return render_template('autenticatefail.html')
         
-        # Aqui você pode verificar se o usuário e a senha estão corretos
-        # Se estiverem corretos, redirecione o usuário para a próxima página
-        # Senão, exiba uma mensagem de erro para o usuário
-        
-        return redirect(url_for('next_page'))
+        elif result['password'] == password:
+            return redirect(url_for('principal'))
+            
     
     return render_template('login.html')
 
@@ -24,23 +26,21 @@ def login():
 @app.route('/register_user', methods=['GET', 'POST'])
 def register():  
     if request.method == 'POST':
-        username = request.form['seu usuário']
-        password = request.form['sua senha']
 
+        username = request.form['seu usuário'].upper()
+        password = request.form['sua senha']
         result = db.insert_credential(username=username, password=password)
+
         return render_template('validated.html', result=result)
-        # return redirect(url_for('register_user.html'))
-    
+        
     return render_template('register_user.html')
 
 
-@app.route('/achei/<username>')
-def achei(username):
+@app.route('/principal')
+def principal():
+        
+    return render_template('principal.html')
 
-    name = username
-    result = db.consult_credential(username=name)
-    
-    
-    return f"<h1>Usuário ja consta cadastrado em nossa base em:{result['data']}</h1>"
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -30,17 +30,13 @@ class Database:
 
         
         result_find = self.consult_credential(username)
-
-        if result_find['username'] == username:
-            print('Ja existe')
-            return False
-        else:
+        print(f'valor dentro de resullt_find{result_find}')
+        if result_find == None:
             insert={
                 "username": username,
                 "password": password,
                 "data": datetime.datetime.now()
             }
-
 
             result = self.collection.insert_one(insert)
 
@@ -50,6 +46,10 @@ class Database:
             else:
                 print('Ocorreu um erro!')
                 return False
+
+        else:
+            return False
+            
         
 
     def consult_credential(self, username):
@@ -58,7 +58,6 @@ class Database:
             "username": username
         }
         result = self.collection.find_one(consult)
-        print(result)
         
         return result
 
