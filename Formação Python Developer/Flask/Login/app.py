@@ -17,7 +17,7 @@ def login():
             return render_template('autenticatefail.html')
         
         elif result['password'] == password:
-            return redirect(url_for('principal'))
+            return redirect(url_for('main'))
             
     
     return render_template('login.html')
@@ -36,10 +36,10 @@ def register():
     return render_template('register_user.html')
 
 
-@app.route('/principal')
-def principal():
+@app.route('/main')
+def main():
         
-    return render_template('principal.html')
+    return render_template('main.html')
 
 
 if __name__ == '__main__':

@@ -27,24 +27,23 @@ class Database:
 
 
     def insert_credential(self, username, password, ):
-
         
-        result_1 = self.consult_credential(username)
-        print(f'valor dentro de resullt_find{result_1}')
-        if result_1 == None:
+        result_consult = self.consult_credential(username)
+
+        if result_consult == None:
             insert={
                 "username": username,
                 "password": password,
                 "data": datetime.datetime.now()
             }
 
-            result = self.collection.insert_one(insert)
+            result_insert = self.collection.insert_one(insert)
 
-            if result.acknowledged:
-                print("Inserido com sucesso")
+            if result_insert.acknowledged:
+                print("Inserted successfully")
                 return True
             else:
-                print('Ocorreu um erro!')
+                print("Error occurred")
                 return False
 
         else:
@@ -60,7 +59,4 @@ class Database:
         result = self.collection.find_one(consult)
         
         return result
-
-
-
 
