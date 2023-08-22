@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "senha123"
+      MYSQL_DATABASE: "testedb"
+    ports:
+      - '3306:3306'
+    volumes: # definição para fazer a copia na pasta do projeto
+      - ./website/data:/var/lib/mysql
+
+  apache:
+    image: httpd:latest
+    container_name: my-apache-app
+    ports:
+      - '80:80'
+    volumes: # Volume para montar os arquivos do site no Apach
+      - ./website:/usr/local/apache2/htdocs
+    command: ["httpd", "-D", "FOREGROUND"] # comando para executar servidor apache em segundo plano e acompanhar logs
+
+# O Docker Compose simplifica a criação e gerenciamento de contêineres.
+# O serviço 'db' é um banco de dados MySQL com senha do root e nome do banco de dados configurados.
+# Ele expõe a porta 3306 para conexões.
+# A pasta 'website/data' é montada no contêiner MySQL para persistência de dados.
+
+# O serviço 'apache' utiliza a imagem httpd:latest para um servidor web Apache.
+# A pasta 'website' é montada no contêiner Apache, permitindo hospedar o site.
+# O comando ["httpd", "-D", "FOREGROUND"] inicia o servidor Apache em primeiro plano.
