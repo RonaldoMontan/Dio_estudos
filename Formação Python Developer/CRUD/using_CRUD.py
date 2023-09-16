@@ -16,15 +16,23 @@ def checked_and_update():
     result_json = read_json()
     result_mongo = action.find_all_mongo()
 
-    for position, (item_j, item_m) in enumerate(zip(result_json, result_mongo)):
+    for position, (item_j, item_m) in enumerate(itertools.zip_longest(result_json, result_mongo)):
+    # for position, (item_j, item_m) in enumerate(itertools.zip_longest(result_json, result_mongo)):
         """
         Itera sobre os elementos das duas listas, tendo como banse uma variavel para posição
         """
+        
+        print(position)
+        print(item_j)
+        print(item_m)
+        
         if item_j != item_m:
             print(f'position {position}: {item_j} not equal {item_m}')
             filter = {"_id": item_j['_id']}
             document = {"$set": {"qt": item_j['qt']}}
             action.up_mongo(id=filter, up=document)
+        
+
 
 
 # action.insert_many_mongo(read_json())
