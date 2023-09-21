@@ -4,6 +4,7 @@ public class principal {
         
         chamaCarro();
         chamaMoto();
+        chamaCaminhao();
 
     }
 
@@ -32,5 +33,14 @@ public class principal {
         
         System.out.println(corDaMoto);
         System.out.println(portas);
+    }
+
+    public static void chamaCaminhao(){
+        
+        Caminhao meuCaminhao = new Caminhao(null, "Mercedes 1113", 250, 6, 3, true);
+
+
+        System.out.println(meuCaminhao.setCor("Verdee"));
+
     }
 }
