@@ -29,8 +29,8 @@ public class Veiculo {
     //     this.carroceria = false;
     // }
 
-    String setCor(String cor){
-        return this.cor = cor;
+    void setCor(String cor){
+        this.cor = cor;
     }
 
     void setModelo(String modelo){
@@ -49,7 +49,7 @@ public class Veiculo {
         this.quantidadeRodas = quantidadeRodas;
     }
 
-    boolean setCarroceria(boolean carroceria){
-        return this.carroceria = carroceria;
+    void setCarroceria(boolean carroceria){
+        this.carroceria = carroceria;
     }
 }

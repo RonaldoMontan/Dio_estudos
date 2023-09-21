@@ -11,6 +11,10 @@ public class Moto  extends Veiculo{
     int setPorta(int numeroPortas){
         return this.numeroPortas = numeroPortas;
     }
+
+    String getCor(){
+        return cor;
+    }
     
 }
 

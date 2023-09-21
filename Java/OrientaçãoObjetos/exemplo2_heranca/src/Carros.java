@@ -10,5 +10,7 @@ public class Carros extends Veiculo {
         return this.numeroPortas = numeroPortas;
     }
 
-    
+    String getCor(){
+        return cor;
+    }
 }   

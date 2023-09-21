@@ -3,7 +3,7 @@ public class principal {
     public static void main(String[] args) {
         
         chamaCarro();
-        chamaMoto();
+        // chamaMoto();
         chamaCaminhao();
 
     }
@@ -14,10 +14,10 @@ public class principal {
 
         System.out.println(meusCarros.cor);
 
-        String corCarro = meusCarros.setCor("Azul");
+        meusCarros.setCor("Azul");
         int portas = meusCarros.setPorta(2);
 
-        System.out.println(corCarro);
+        System.out.println(meusCarros.getCor());
         System.out.println(portas);
 
     }
@@ -28,19 +28,24 @@ public class principal {
 
         System.out.println(minhaMoto.cor);
 
-        String corDaMoto = minhaMoto.setCor("Vermelha");
+        minhaMoto.setCor("Vermelha");
         int portas = minhaMoto.setPorta(2);
         
-        System.out.println(corDaMoto);
+        System.out.println(minhaMoto.getCor());
         System.out.println(portas);
     }
 
     public static void chamaCaminhao(){
         
-        Caminhao meuCaminhao = new Caminhao(null, "Mercedes 1113", 250, 6, 3, true);
+        Caminhao meuCaminhao = new Caminhao(null, null, 0, 0, 0, false);
 
+        System.out.println(meuCaminhao.cor);
 
-        System.out.println(meuCaminhao.setCor("Verdee"));
+        meuCaminhao.setCor("Verde-Claro");
+        meuCaminhao.setPorta(2);
+        meuCaminhao.setPotencia(250);
+
+        System.out.println(meuCaminhao.getCor());
 
     }
 }

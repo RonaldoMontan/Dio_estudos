@@ -5,11 +5,10 @@ public class Caminhao extends Veiculo{
     private int quantidadeEixo;
     private String corCarroceria;
 
-    private String cor;
 
     public Caminhao(String cor, String modelo, int potencia, int quantidadeRodas, int quantidadePassageiros, boolean carroceria){
         super(cor, modelo, potencia, quantidadeRodas, quantidadePassageiros, carroceria);
-        this.cor = cor;
+        
     }
 
     int setPorta(int numeroPortas){
@@ -28,8 +27,8 @@ public class Caminhao extends Veiculo{
         return this.corCarroceria = corCarroceria;
     }
 
-    // String getCor(){
-    //     return cor;
-    // }
+    String getCor(){
+        return cor;
+    }
     
 }
