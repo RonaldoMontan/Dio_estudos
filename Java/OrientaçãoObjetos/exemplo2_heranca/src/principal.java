@@ -44,8 +44,18 @@ public class principal {
         meuCaminhao.setCor("Verde-Claro");
         meuCaminhao.setPorta(2);
         meuCaminhao.setPotencia(250);
+        meuCaminhao.setCarroceria(true);
+        meuCaminhao.setCorCarroceria("Verde-militar");
+        meuCaminhao.setEixo(4);
+        meuCaminhao.setRodas(6);
 
         System.out.println(meuCaminhao.getCor());
+        // System.out.println(meuCaminhao.numeroPortas);
+        System.out.println(meuCaminhao.potencia);
+        System.out.println("O caminhão tem carroceria ?" + meuCaminhao.carroceria);
+        System.out.println(meuCaminhao.quantidadeRodas);
+        System.out.println();
+
 
     }
 }
