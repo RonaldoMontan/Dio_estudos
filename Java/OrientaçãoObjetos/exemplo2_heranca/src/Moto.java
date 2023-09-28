@@ -15,6 +15,10 @@ public class Moto  extends Veiculo{
     String getCor(){
         return cor;
     }
+
+    String getCapacete(){
+        return estiloCapacete;
+    }
     
 }
 
