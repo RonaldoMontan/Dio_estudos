@@ -2,30 +2,55 @@ public class principal {
     
     public static void main(String[] args) {
         
-        // chamaCarro();
+        chamaCarro();
         chamaMoto();
         chamaMotoPasseio();
-        // chamaCaminhao();
+        chamaCaminhao();
 
     }
 
     public static void chamaCarro(){
 
-        Carros meusCarros = new Carros(null, "Gol GTS", 105, 4, 5);
+        Carros meusCarro = new Carros(null, "Gol GTS", 105, 4, 5);
 
-        System.out.println(meusCarros.cor);
+        //Iniciando valores privado (exclusivo da sua classe Carro)
 
-        meusCarros.setCor("Azul");
-        int portas = meusCarros.setPorta(2);
+        meusCarro.setCategoria("Coleção");
+        meusCarro.setCor("Azul-Riviera");
+        meusCarro.setPorta(2);
+        meusCarro.setTurbo(false);
+        
+        System.out.println();
+        System.out.println(">>>> Informações da Classe Carro <<<<\n");
 
-        System.out.println(meusCarros.getCor());
-        System.out.println(portas);
+        System.out.println("A cor do carro é: " + meusCarro.getCor());
+        System.out.println("Seu modelo é: " + meusCarro.modelo);
+        System.out.printf("Com uma potencia de %d Cavalos\n", meusCarro.potencia);
+        System.out.println("Possui um total de rodas: " + meusCarro.quantidadeRodas);
+        System.out.printf("Consegue transportar até %d pessoas\n", meusCarro.quantidadePassageiros);
+        System.out.printf("mas só tem %d Portas\n", meusCarro.getPorta());
+        System.out.print("Por ser um veículo de " + meusCarro.getCategoria() + " ele recebe " + meusCarro.getTurbo() + " para turbo\n");
+
 
     }
 
     public static void chamaMoto(){
 
-        Moto minhaMoto = new Moto(null, "Biz ES", 65, 2, 1);
+        Moto minhaMoto = new Moto(null, "Biz ES", 65, 2, 2);
+
+        //Instnciando valores privado (exclusivo da sua calsse Moto)
+
+        minhaMoto.setCapacete("Fechado");
+        minhaMoto.setCor("Vermelha");
+
+        System.out.println();
+        System.out.println(">>>> Informações da Classe Moto <<<<\n");
+        System.out.println("A Cor da moto é: " + minhaMoto.getCor());
+        System.out.println("O modelo é: " + minhaMoto.modelo);
+        System.out.println("Sua potencia é: " + minhaMoto.potencia);
+        System.out.printf("Com %d rodas\n", minhaMoto.quantidadeRodas);
+        System.out.printf("Só consegue transportar %d Pessoa\n", minhaMoto.quantidadePassageiros);
+        System.out.println("Com essa moto você usa o capacete: " + minhaMoto.getCapacete());
 
 
     }
