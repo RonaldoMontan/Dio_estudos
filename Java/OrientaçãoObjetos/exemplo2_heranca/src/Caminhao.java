@@ -6,8 +6,8 @@ public class Caminhao extends Veiculo{
     private String corCarroceria;
 
 
-    public Caminhao(String cor, String modelo, int potencia, int quantidadeRodas, int quantidadePassageiros, boolean carroceria){
-        super(cor, modelo, potencia, quantidadeRodas, quantidadePassageiros, carroceria);
+    public Caminhao(String cor, String modelo, int potencia, int quantidadeRodas, int quantidadePassageiros){
+        super(cor, modelo, potencia, quantidadeRodas, quantidadePassageiros);
         
     }
 
@@ -30,6 +30,20 @@ public class Caminhao extends Veiculo{
     String getCor(){
         return cor;
     }
+
+    int getNumeroPortas(){
+        return numeroPortas;
+    }
     
+    String getTipoCarroceria(){
+        return tipoCarroceria;
+    }
     
+    int getQtdEixo(){
+        return quantidadeEixo;
+    }
+
+    String getCorCarroceria(){
+        return corCarroceria;
+    }
 }

@@ -1,15 +1,15 @@
 public class Moto  extends Veiculo{
          
-    private int numeroPortas;
+    private  String estiloCapacete;
 
+    public Moto(String cor, String modelo, int potencia, int quantidadeRodas, int quantidadePassageiros){
 
-    public Moto(String cor, String modelo, int potencia, int quantidadeRodas, int quantidadePassageiros, boolean carroceria){
-
-        super(cor, modelo, potencia, quantidadeRodas, quantidadePassageiros, carroceria);
+        super(cor, modelo, potencia, quantidadeRodas, quantidadePassageiros);
     }
 
-    int setPorta(int numeroPortas){
-        return this.numeroPortas = numeroPortas;
+
+    String setCapacete(String estiloCapacete){
+        return this.estiloCapacete = estiloCapacete;
     }
 
     String getCor(){

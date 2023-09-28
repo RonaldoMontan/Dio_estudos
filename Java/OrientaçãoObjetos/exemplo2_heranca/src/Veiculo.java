@@ -10,14 +10,13 @@ public class Veiculo {
 
     Veiculo(String cor,                 String modelo,
             int potencia,            int quantidadeRodas,
-            int quantidadePassageiros,  boolean carroceria){
+            int quantidadePassageiros){
 
             this.cor = "Fundo padrão";
             this.potencia = potencia;
             this.quantidadePassageiros = quantidadePassageiros;
             this.modelo = modelo;
             this.quantidadeRodas = quantidadeRodas;
-            this.carroceria = false;
         }
 
     // Veiculo(){
@@ -49,7 +48,4 @@ public class Veiculo {
         this.quantidadeRodas = quantidadeRodas;
     }
 
-    void setCarroceria(boolean carroceria){
-        this.carroceria = carroceria;
-    }
 }
