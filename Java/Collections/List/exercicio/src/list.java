@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Iterator;
 
 public class list {
     public static void main(String[] args) throws Exception {
@@ -14,10 +16,10 @@ public class list {
         notas.add(7.0);
         notas.add(5.0);
 
-        System.out.println(notas.size());
-        System.out.println(notas.toString());
-        System.out.println("Posição da nota 5.0 -> " + notas.indexOf(5d));
-        System.out.println("Posição da nota 7.0 -> " + notas.indexOf(7d));
+        System.out.println("Quantidade de notas na lista: " + notas.size());
+        System.out.println("\nTodas as notas são: " + notas.toString());
+        System.out.println("\nPosição da nota 5.0 -> " + notas.indexOf(5d));
+        System.out.println("\nPosição da nota 7.0 -> " + notas.indexOf(7d));
 
         for (Double value : notas) {
             System.out.println(value);
@@ -31,11 +33,25 @@ public class list {
         }
 
         System.out.println("\nSubistituindo a nota 6.0 para 8.0");
-
         notas.set(notas.indexOf(6d), 8.0);
-
         System.out.println(notas.toString());
+        System.out.println();
 
         System.out.println("A nota 10.0 esta na lista ?: " + notas.contains(10.0));
+
+        System.out.println("\nA menor nota é: " + Collections.min(notas));
+        System.out.println("\nA maior nota é : " + Collections.max(notas));
+        
+        Iterator<Double> iterator = notas.iterator();
+        Double total = 0d;
+
+        while(iterator.hasNext()){
+            Double next = iterator.next();
+            System.out.println(iterator.hasNext());
+            // System.out.println(iterator.next());
+            total += next;
+        }
+
+        // System.out.println(iterator.hasNext());
     }
 }
