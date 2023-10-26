@@ -47,11 +47,34 @@ public class list {
 
         while(iterator.hasNext()){
             Double next = iterator.next();
-            System.out.println(iterator.hasNext());
+            // System.out.println(iterator.hasNext());
             // System.out.println(iterator.next());
             total += next;
         }
+        System.out.println("\nA soma dos valores contidos na lista é: " + total);
+        System.out.println("\nA media dos valores contidos na lista é: " + (total/notas.size()));
 
-        // System.out.println(iterator.hasNext());
+        System.out.println("\nRemovendo a nota da posição 1");
+        notas.remove(1);
+        System.out.println(notas.toString());
+
+        System.out.println("\nRemovendo a nota 5.0");
+        notas.remove(5d);
+        System.out.println(notas.toString());
+        
+        System.out.println("\nRemovendo valores menores que 8");
+        Iterator<Double> iterator1 = notas.iterator();
+
+        while(iterator1.hasNext()){
+            Double next = iterator1.next();
+            if(next <8) iterator1.remove();
+        }
+
+        System.out.println("Lista atualizada: " + notas.toString());
+
+        System.out.println("\nApagando a lista: ");
+        notas.clear();
+        System.out.println(notas);
+
     }
 }
