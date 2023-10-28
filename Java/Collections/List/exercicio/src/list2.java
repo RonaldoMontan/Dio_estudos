@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class list2 {
@@ -11,13 +13,20 @@ public class list2 {
             add(new Gato("novo", 3, "branco"));
 
         }};
+        
         System.out.println(meusGatos);
+
+        Collections.shuffle(meusGatos);
+        System.out.println("\nImprimindo em ordem aleatória: " + meusGatos );
+
+        Collections.sort(meusGatos);
+        System.out.println("\nImprimindo em ordem natural: " + meusGatos);
 
     }
     
 }
 
-class Gato{
+class Gato implements Comparable<Gato>{
 
     private String nome;
     private Integer idade;
@@ -48,8 +57,10 @@ class Gato{
                 ", idade=" + idade +
                 ", cor='" + cor + '\'' +
                 '}';
+    }
 
-
-        }
+    @Override
+    public int compareTo(Gato gato){
+        return this.getNome().compareToIgnoreCase(gato.getNome());
     }
 }
