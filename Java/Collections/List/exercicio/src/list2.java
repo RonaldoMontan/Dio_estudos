@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class list2 {
@@ -13,7 +14,7 @@ public class list2 {
             add(new Gato("novo", 3, "branco"));
 
         }};
-        
+
         System.out.println(meusGatos);
 
         Collections.shuffle(meusGatos);
@@ -21,6 +22,12 @@ public class list2 {
 
         Collections.sort(meusGatos);
         System.out.println("\nImprimindo em ordem natural: " + meusGatos);
+
+        Collections.sort(meusGatos, new ComparatorIdade());
+        System.out.println(meusGatos);
+
+
+
 
     }
     
@@ -62,5 +69,12 @@ class Gato implements Comparable<Gato>{
     @Override
     public int compareTo(Gato gato){
         return this.getNome().compareToIgnoreCase(gato.getNome());
+    }
+}
+
+class ComparatorIdade implements Comparator<Gato> {
+    @Override
+    public int compare(Gato g1, Gato g2){
+        return Integer.compare(g1.getIdade(), g2.getIdade());
     }
 }
