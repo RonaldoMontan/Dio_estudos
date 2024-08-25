@@ -1,0 +1,7 @@
+start project on path, use: vagrant init
+will be create on file 'Vagrantfile'.
+uncomment line 16 and insert your version. Visity https://app.vagrantup.com/bento/boxes/ubuntu-22.04 for more information.
+uncomment line 40.
+if to wish install docker, uncomment line 73 and create file.sh
+
+runing with comand: vagrant up
